@@ -5,7 +5,7 @@ fetch("https://search.yahoo.co.jp/realtime", {
     "cache-control": "max-age=0",
     "sec-ch-ua": "\"Chromium\";v=\"118\", \"Google Chrome\";v=\"118\", \"Not=A?Brand\";v=\"99\"",
     "sec-ch-ua-arch": "\"x86\"",
-    "sec-ch-ua-full-version-list": "\"Chromium\";v=\"118.0.5993.88\", \"Google Chrome\";v=\"118.0.5993.88\", \"Not=A?Brand\";v=\"99.0.0.0\"",
+    "sec-ch-ua-full-version-list": "\"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\", \"Not=A?Brand\";v=\"100.0.0.0\"",
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-model": "\"\"",
     "sec-ch-ua-platform": "\"Windows\"",
@@ -28,5 +28,14 @@ fetch("https://search.yahoo.co.jp/realtime", {
     const firstList = Array.from(trends.querySelector("#atkey > section").querySelectorAll("ol")[0].children);
     const secondList = Array.from(trends.querySelector("#atkey > section").querySelectorAll("ol")[1].children);
     const combinedList = firstList.concat(secondList);
-    console.log(combinedList);
+    const trend = [];
+
+    combinedList.forEach((e, i) => {
+        trend.push({
+             name: e.innerText,
+             rank: ++i
+        })
+    })
+
+    console.log(trend)
   });
